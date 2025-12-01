@@ -5,11 +5,14 @@ ApexData is a Formula 1 data API powered by FastF1, built with FastAPI (Python) 
 ## Features
 
 - ✅ Complete F1 data API (Seasons, Drivers, Constructors, Races, Results, Qualifying)
+- ✅ Modern Next.js frontend with F1-inspired design
 - ✅ FastF1 integration for telemetry data
 - ✅ PostgreSQL database with SQLAlchemy ORM
 - ✅ Alembic migrations
 - ✅ Auto-generated API documentation (Swagger/ReDoc)
 - ✅ CORS enabled for frontend integration
+- ✅ Dark theme with Orbitron font and F1 aesthetics
+- ✅ Responsive sidebar navigation
 - 🚧 Telemetry endpoints (coming soon)
 - 🚧 Live timing data (coming soon)
 
@@ -22,6 +25,13 @@ ApexData is a Formula 1 data API powered by FastF1, built with FastAPI (Python) 
 - **FastF1** - F1 data and telemetry library
 - **PostgreSQL** - Primary database
 - **Pydantic** - Data validation
+
+### Frontend
+- **Next.js 16** - React framework with App Router
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **Orbitron Font** - F1-inspired typography
+- **F1 Design System** - Custom animations and tech aesthetic
 
 ### Database
 - **PostgreSQL 15+** - Main database
@@ -47,7 +57,19 @@ ApexData/
 │   ├── tests/            # Tests
 │   ├── requirements.txt  # Python dependencies
 │   └── .env             # Environment variables (not in git)
-├── frontend/             # Next.js app (coming soon)
+├── frontend/             # Next.js app
+│   ├── app/              # Next.js App Router pages
+│   │   ├── dashboard/    # Dashboard page
+│   │   ├── globals.css   # Global styles with F1 animations
+│   │   ├── layout.tsx    # Root layout
+│   │   └── page.tsx      # Home page (redirects to dashboard)
+│   ├── components/       # React components
+│   │   └── Sidebar.tsx   # Collapsible sidebar navigation
+│   ├── lib/              # Utilities
+│   │   └── api-client.ts # API client for backend
+│   ├── package.json      # Node dependencies
+│   ├── tailwind.config.ts # Tailwind configuration
+│   └── tsconfig.json     # TypeScript configuration
 └── README.md
 
 ```
@@ -57,6 +79,7 @@ ApexData/
 ### Prerequisites
 
 - Python 3.11+
+- Node.js 20+
 - PostgreSQL 15+
 - Git
 
@@ -139,6 +162,51 @@ The API will be available at:
 - API: http://localhost:8000
 - Interactive Docs (Swagger): http://localhost:8000/docs
 - Alternative Docs (ReDoc): http://localhost:8000/redoc
+
+### 4. Frontend Setup
+
+#### Install Dependencies
+
+```bash
+cd frontend
+npm install
+```
+
+#### Configure Environment Variables
+
+Create a `.env.local` file in the `frontend` directory:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+```
+
+#### Start the Development Server
+
+```bash
+npm run dev
+```
+
+The frontend will be available at:
+- Frontend: http://localhost:3000
+- Dashboard: http://localhost:3000/dashboard
+
+## Running Both Servers
+
+To run the full application:
+
+1. **Terminal 1 - Backend:**
+```bash
+cd backend
+venv\Scripts\activate  # Windows
+source venv/bin/activate  # macOS/Linux
+uvicorn app.main:app --reload --port 8000
+```
+
+2. **Terminal 2 - Frontend:**
+```bash
+cd frontend
+npm run dev
+```
 
 ## API Endpoints
 
