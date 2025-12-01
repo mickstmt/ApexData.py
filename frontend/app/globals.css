@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 6% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --primary: 0 100% 44%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4% 9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 64%;
+
+    --accent: 240 5% 25%;
+    --accent-foreground: 0 0% 98%;
+
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 0 100% 44%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #18181b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* F1-inspired animations and effects */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(225, 6, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(225, 6, 0, 0.6);
+  }
+}
+
+@keyframes speed-lines {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-speed-lines {
+  animation: speed-lines 1.5s linear infinite;
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Glowing borders for F1 tech aesthetic */
+.glow-border {
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(45deg, #e10600, #ff3333, #e10600);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.glow-border:hover::before {
+  opacity: 1;
+}
+
+/* Tech grid background */
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(225, 6, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(225, 6, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Racing stripe effect */
+.racing-stripe {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(225, 6, 0, 0.1) 25%,
+    rgba(225, 6, 0, 0.3) 50%,
+    rgba(225, 6, 0, 0.1) 75%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: racing-stripe 3s linear infinite;
+}
+
+@keyframes racing-stripe {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
