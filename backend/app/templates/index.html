@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexData API - F1 Data Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 90%;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .status {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .link-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .link-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .link-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .features {
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .features h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .version {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏎️ ApexData API</h1>
+        <div class="subtitle">Formula 1 Data Platform powered by FastF1</div>
+        <div class="status">● API Online</div>
+        <span class="version">v1.0.0</span>
+
+        <div class="links">
+            <a href="/docs" class="link-card">
+                <h3>📚 API Docs</h3>
+                <p>Interactive Swagger documentation</p>
+            </a>
+            <a href="/redoc" class="link-card">
+                <h3>📖 ReDoc</h3>
+                <p>Alternative API documentation</p>
+            </a>
+            <a href="/health" class="link-card">
+                <h3>💚 Health Check</h3>
+                <p>API status endpoint</p>
+            </a>
+        </div>
+
+        <div class="features">
+            <h2>Available Resources</h2>
+            <ul>
+                <li><strong>Seasons</strong> - GET /api/v1/seasons/</li>
+                <li><strong>Drivers</strong> - GET /api/v1/drivers/</li>
+                <li><strong>Constructors</strong> - GET /api/v1/constructors/</li>
+                <li><strong>Races</strong> - GET /api/v1/races/</li>
+                <li><strong>Results</strong> - Race results data</li>
+                <li><strong>Qualifying</strong> - Qualifying session data</li>
+            </ul>
+        </div>
+
+        <div class="features">
+            <h2>Features</h2>
+            <ul>
+                <li>FastF1 integration for telemetry data</li>
+                <li>Complete CRUD operations</li>
+                <li>PostgreSQL database</li>
+                <li>Auto-generated API documentation</li>
+                <li>RESTful API design</li>
+                <li>CORS enabled for frontend integration</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Built with FastAPI & FastF1</p>
+            <p>For more information, visit <a href="/docs" style="color: #667eea;">/docs</a></p>
+        </div>
+    </div>
+</body>
+</html>

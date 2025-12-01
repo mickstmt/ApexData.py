@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 from app.config import settings
 from app.api.v1 import seasons, drivers, constructors, races
+from pathlib import Path
 
 # Import all models to ensure they are registered with SQLAlchemy
 from app.db import base  # noqa: F401
@@ -31,14 +33,11 @@ app.include_router(constructors.router, prefix=f"{settings.API_V1_PREFIX}/constr
 app.include_router(races.router, prefix=f"{settings.API_V1_PREFIX}/races", tags=["races"])
 
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 def root():
-    """Root endpoint"""
-    return {
-        "message": "ApexData API - FastF1 Powered",
-        "version": settings.VERSION,
-        "docs": "/docs",
-    }
+    """Root endpoint - Landing page"""
+    html_file = Path(__file__).parent / "templates" / "index.html"
+    return html_file.read_text(encoding="utf-8")
 
 
 @app.get("/health")
