@@ -1,0 +1,27 @@
+# FastAPI
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+pydantic==2.10.3
+pydantic-settings==2.6.1
+
+# Database
+sqlalchemy==2.0.36
+alembic==1.14.0
+psycopg2-binary==2.9.10
+
+# FastF1 and Data Processing
+fastf1==3.4.0
+pandas==2.2.3
+numpy==2.2.1
+
+# Caching and Task Queue
+redis==5.2.0
+celery==5.4.0
+
+# HTTP Client
+httpx==0.28.1
+aiohttp==3.11.10
+
+# Utilities
+python-dotenv==1.0.1
+python-multipart==0.0.18
